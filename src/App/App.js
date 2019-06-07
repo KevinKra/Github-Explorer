@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <Route path="/" component={Splash} />
-        <Route path="/main" component={NavBar} />
-        <Route path="/main" component={Dashboard} />
+        <Route exact path="/" component={Splash} />
+        <Route path="/dashboard" component={NavBar} />
+        <Route path="/dashboard" component={Dashboard} />
       </main>
     );
   }
