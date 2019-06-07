@@ -1,0 +1,21 @@
+.Splash {
+  min-height: 100vh;
+  overflow-x: hidden;
+  .header-content {
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2053&q=80");
+    background-size: cover;
+    filter: grayscale(15%);
+  }
+  .title-card {
+    position: absolute;
+    z-index: 1;
+    padding: 1rem;
+    left: 1rem;
+    color: white;
+    background-color: rgba(26, 26, 26, 0.75);
+  }
+  section {
+    border: 5px solid red;
+  }
+}
