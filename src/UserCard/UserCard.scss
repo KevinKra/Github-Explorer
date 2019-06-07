@@ -1,3 +1,48 @@
 .UserCard {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+  .primary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+  }
+  .expanded-content {
+    padding: 0.4rem 0;
+    // width: 500px;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.2rem 0;
+      min-width: 450px;
+    }
+    .name {
+      color: red;
+    }
+  }
+  img {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+  }
+}
+
+.hidden {
+  transition: 0.2s ease-in-out;
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+}
+.show {
+  transition: 0.5s width ease-in-out;
+  border: 1px solid black;
+  height: 200px;
+  width: 550px;
+  overflow: hidden;
 }
