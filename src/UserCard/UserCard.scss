@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  margin: 0.5rem;
+  margin: 0.5rem 1rem;
   border: 1px solid black;
   box-shadow: 1px 1px 15px 1px lightgrey;
   border-radius: 4px;
@@ -26,7 +26,7 @@
       justify-content: center;
       margin: 0;
       padding: 0;
-      height: 172px;
+      height: 173px;
     }
 
     li {
@@ -51,9 +51,13 @@
     border-radius: 50%;
   }
   .user-links {
+    width: 245px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     align-self: flex-end;
     a {
-      margin: 0 1rem 1rem 0;
+      margin-left: 1rem;
       color: black;
       &:hover {
         cursor: pointer;
@@ -82,7 +86,7 @@
 }
 
 .hidden {
-  transition: 0.2s ease-in-out;
+  transition: 0.4s ease-in-out;
   height: 225px;
   width: 200px;
 }

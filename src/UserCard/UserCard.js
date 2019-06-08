@@ -59,12 +59,17 @@ export class UserCard extends Component {
           <li className="bio">bio: {bio}</li>
         </ul>
         <div className="user-links">
-          <a href={`${url}`} target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github" />
-          </a>
-          <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
-            <i className="fas fa-link" />
-          </a>
+          <button onClick={() => this.props.moreInfo(this.props.user)}>
+            More Info
+          </button>
+          <div>
+            <a href={`${url}`} target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github" />
+            </a>
+            <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
+              <i className="fas fa-link" />
+            </a>
+          </div>
         </div>
       </section>
     );
