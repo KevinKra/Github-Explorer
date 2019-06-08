@@ -1,7 +1,8 @@
 .UserCard {
   display: flex;
+  position: relative;
   flex-direction: row;
-  margin: 1rem;
+  margin: 0.5rem;
   border: 1px solid black;
   box-shadow: 1px 1px 15px 1px lightgrey;
   border-radius: 4px;
@@ -25,7 +26,7 @@
       justify-content: center;
       margin: 0;
       padding: 0;
-      height: 185px;
+      height: 172px;
     }
 
     li {
@@ -39,7 +40,7 @@
       font-size: 18px;
     }
     .bio {
-      padding-right: 0.2rem;
+      padding: 0.1rem 0.2rem 0 0;
       overflow-y: auto;
       border-top: 1px solid black;
     }
@@ -88,6 +89,7 @@
 .show {
   transition: 0.5s width ease-in-out;
   height: 225px;
+  padding-right: 1rem;
   width: 455px;
   overflow: hidden;
 }
