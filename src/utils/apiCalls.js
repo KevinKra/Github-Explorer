@@ -1,5 +1,5 @@
-export const collectUsers = async () => {
-  const response = await fetch(`https://api.github.com/users`);
+export const collectUsers = async query => {
+  const response = await fetch(`https://api.github.com/${query || "users"}`);
   if (!response.ok) {
     throw new Error(`Unsuccessful fetch of users data.`);
   }
