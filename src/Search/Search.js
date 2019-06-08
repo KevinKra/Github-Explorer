@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { searchUsers } from "../utils/apiCalls";
 
 export default class Search extends Component {
   state = {
@@ -13,7 +12,9 @@ export default class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    e.currentTarget.reset();
     this.props.searchUsers(this.state.search);
+    this.setState({ search: "" });
   };
   render() {
     return (
