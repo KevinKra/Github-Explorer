@@ -5,6 +5,7 @@ import { Spinner } from "../Spinner/Spinner";
 import NavBar from "../NavBar/NavBar";
 import SideBar from "../SideBar/SideBar";
 import "./Dashboard.scss";
+import { handleEmptyData } from "../utils/helpers";
 
 class Dashboard extends Component {
   state = {
@@ -25,8 +26,9 @@ class Dashboard extends Component {
   };
 
   moreInfo = data => {
-    const toggle = this.state.sideBar;
-    this.setState({ sideBar: !toggle, userData: data });
+    console.log("data", data);
+    const cleanedData = handleEmptyData(data);
+    this.setState({ sideBar: true, userData: cleanedData });
   };
 
   renderUserCards = () => {
@@ -37,7 +39,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { loading, sideBar } = this.state;
+    const { loading, sideBar, userData } = this.state;
     return (
       <Fragment>
         <NavBar searchUsers={this.searchUsers} />
@@ -45,7 +47,7 @@ class Dashboard extends Component {
           <section className="user-cards">
             {loading ? <Spinner /> : this.renderUserCards()}
           </section>
-          <SideBar sideBar={sideBar} />
+          <SideBar sideBar={sideBar} userData={userData} />
         </main>
       </Fragment>
     );
