@@ -14,20 +14,24 @@ export class UserCard extends Component {
   };
 
   toggleCardExpand = async () => {
-    const data = await apiCalls.collectUser(this.props.user.login);
-    const filteredData = {
-      blog: data.blog,
-      email: data.email,
-      followers: data.followers,
-      following: data.following,
-      location: data.location,
-      name: data.name,
-      url: data.url,
-      bio: data.bio
-    };
-    const userData = helpers.handleEmptyData(filteredData);
     const toggle = this.state.expanded;
-    this.setState({ expanded: !toggle, userData });
+    if (this.state.userData.length === 0) {
+      const data = await apiCalls.collectUser(this.props.user.login);
+      const filteredData = {
+        blog: data.blog,
+        email: data.email,
+        followers: data.followers,
+        following: data.following,
+        location: data.location,
+        name: data.name,
+        url: data.url,
+        bio: data.bio
+      };
+      const userData = helpers.handleEmptyData(filteredData);
+      this.setState({ expanded: !toggle, userData });
+      return;
+    }
+    this.setState({ expanded: !toggle });
   };
 
   render() {
@@ -48,13 +52,17 @@ export class UserCard extends Component {
         <ul>
           <li className="name">{name}</li>
           <li>location: {location}</li>
-          <li>website: {blog}</li>
           <li>bio: {bio}</li>
           <li>email: {email}</li>
-          <li>Github: {url}</li>
           <li>followers: {followers}</li>
           <li>following: {following}</li>
         </ul>
+        <a href={`${url}`} target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-github" />
+        </a>
+        <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
+          <i className="fas fa-link" />
+        </a>
       </section>
     );
     return (
