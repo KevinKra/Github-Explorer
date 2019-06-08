@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as apiCalls from "../utils/apiCalls";
 import { UserCard } from "../UserCard/UserCard";
+import { Spinner } from "../Spinner/Spinner";
+import "./Dashboard.scss";
 
 class Dashboard extends Component {
   state = {
@@ -15,12 +17,16 @@ class Dashboard extends Component {
   renderUserCards = () => {
     return this.state.users.map(user => <UserCard user={user} key={user.id} />);
   };
+
   render() {
+    const userCards = this.renderUserCards();
     return (
-      <div>
-        <div>{this.renderUserCards()}</div>
-        <h1>Dashboard</h1>
-      </div>
+      <main className="Dashboard">
+        <h3>Dashboard</h3>
+        <section className="user-cards">
+          {this.state.loading ? <Spinner /> : userCards}
+        </section>
+      </main>
     );
   }
 }
