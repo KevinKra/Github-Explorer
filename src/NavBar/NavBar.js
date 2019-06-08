@@ -7,7 +7,7 @@ export default class NavBar extends Component {
       <nav>
         <i>icon</i>
         <h4>Title</h4>
-        <Search />
+        <Search searchUsers={this.props.searchUsers} />
       </nav>
     );
   }

@@ -1,5 +1,5 @@
 export const collectUsers = async query => {
-  const response = await fetch(`https://api.github.com/${query || "users"}`);
+  const response = await fetch(`https://api.github.com/users`);
   if (!response.ok) {
     throw new Error(`Unsuccessful fetch of users data.`);
   }
@@ -10,6 +10,16 @@ export const collectUser = async user => {
   const response = await fetch(`https://api.github.com/users/${user}`);
   if (!response.ok) {
     throw new Error(`Unsuccessful fetch ${user}'s data.`);
+  }
+  return await response.json();
+};
+
+export const searchUsers = async users => {
+  const response = await fetch(
+    `https://api.github.com/search/users?q=${users}`
+  );
+  if (!response.ok) {
+    throw new Error(`Unsuccessful search request.`);
   }
   return await response.json();
 };
