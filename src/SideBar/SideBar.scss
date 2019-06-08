@@ -1,4 +1,32 @@
 .SideBar {
   border: 1px solid red;
   width: 50%;
+  .sb-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    width: 500px;
+    .primary-content {
+      display: flex;
+      border: 1px solid red;
+    }
+    .primary-details {
+      border: 1px solid red;
+      height: 250px;
+      p {
+        margin: 1rem 0.2rem;
+      }
+      span {
+        border-radius: 4px;
+        padding: 0.1rem 0.3rem;
+        background-color: lightgrey;
+      }
+    }
+    img {
+      height: 250px;
+      width: 250px;
+    }
+  }
 }
