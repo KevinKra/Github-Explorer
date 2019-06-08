@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: row;
   margin: 1rem;
+  border: 1px solid black;
+  box-shadow: 1px 1px 15px 1px lightgrey;
+  border-radius: 4px;
   .primary-content {
     display: flex;
     flex-direction: column;
@@ -10,39 +13,81 @@
     min-width: 200px;
   }
   .expanded-content {
-    padding: 0.4rem 0;
-    // width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0.2rem;
+
     ul {
       list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       margin: 0;
       padding: 0;
+      height: 185px;
     }
 
     li {
       margin: 0.2rem 0;
-      min-width: 450px;
+      vertical-align: top;
+      width: 240px;
+      font-size: 14px;
     }
     .name {
       color: red;
+      font-size: 18px;
+    }
+    .bio {
+      padding-right: 0.2rem;
+      overflow-y: auto;
+      border-top: 1px solid black;
     }
   }
   img {
-    height: 75px;
-    width: 75px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
+  }
+  .user-links {
+    align-self: flex-end;
+    a {
+      margin: 0 1rem 1rem 0;
+      color: black;
+      &:hover {
+        cursor: pointer;
+        color: grey;
+      }
+    }
+    i {
+      font-size: 22px;
+    }
+  }
+  button {
+    background-color: black;
+    height: 25px;
+    width: 100px;
+    color: white;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: darkgrey;
+    }
+    &:focus {
+      outline: none;
+      border: 1px solid grey;
+    }
   }
 }
 
 .hidden {
   transition: 0.2s ease-in-out;
-  border: 1px solid black;
-  height: 200px;
+  height: 225px;
   width: 200px;
 }
 .show {
   transition: 0.5s width ease-in-out;
-  border: 1px solid black;
-  height: 200px;
-  width: 550px;
+  height: 225px;
+  width: 455px;
   overflow: hidden;
 }

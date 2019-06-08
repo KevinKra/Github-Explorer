@@ -51,18 +51,21 @@ export class UserCard extends Component {
       <section className="expanded-content">
         <ul>
           <li className="name">{name}</li>
+          <li>
+            followers: {followers} | following: {following}
+          </li>
           <li>location: {location}</li>
-          <li>bio: {bio}</li>
           <li>email: {email}</li>
-          <li>followers: {followers}</li>
-          <li>following: {following}</li>
+          <li className="bio">bio: {bio}</li>
         </ul>
-        <a href={`${url}`} target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-github" />
-        </a>
-        <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
-          <i className="fas fa-link" />
-        </a>
+        <div className="user-links">
+          <a href={`${url}`} target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-github" />
+          </a>
+          <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-link" />
+          </a>
+        </div>
       </section>
     );
     return (
@@ -72,7 +75,9 @@ export class UserCard extends Component {
         <section className="primary-content">
           <img src={avatar_url} alt={`user ${login}`} />
           <h3>{login}</h3>
-          <button onClick={this.toggleCardExpand}>Expand</button>
+          <button onClick={this.toggleCardExpand}>
+            {this.state.expanded ? "Collapse" : "Expand"}
+          </button>
         </section>
         {this.state.expanded && expandedDetails}
       </article>
