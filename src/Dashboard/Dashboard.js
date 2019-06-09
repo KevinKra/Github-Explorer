@@ -11,6 +11,7 @@ class Dashboard extends Component {
   state = {
     users: [],
     userData: {},
+    userRepos: [],
     loading: true,
     sideBar: false
   };
@@ -25,10 +26,10 @@ class Dashboard extends Component {
     this.setState({ users: output.items, loading: false });
   };
 
-  moreInfo = data => {
-    console.log("data", data);
+  moreInfo = async data => {
     const cleanedData = handleEmptyData(data);
-    this.setState({ sideBar: true, userData: cleanedData });
+    const userRepos = await apiCalls.userRepos(data.login);
+    this.setState({ sideBar: true, userData: cleanedData, userRepos });
   };
 
   renderUserCards = () => {
@@ -39,7 +40,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { loading, sideBar, userData } = this.state;
+    const { loading, sideBar, userData, userRepos } = this.state;
     return (
       <Fragment>
         <NavBar searchUsers={this.searchUsers} />
@@ -47,7 +48,11 @@ class Dashboard extends Component {
           <section className="user-cards">
             {loading ? <Spinner /> : this.renderUserCards()}
           </section>
-          <SideBar sideBar={sideBar} userData={userData} />
+          <SideBar
+            sideBar={sideBar}
+            userData={userData}
+            userRepos={userRepos}
+          />
         </main>
       </Fragment>
     );
