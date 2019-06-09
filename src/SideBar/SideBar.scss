@@ -1,31 +1,38 @@
 @import "../_styles/variables";
 
 .SideBar {
-  // border: 2px solid red;
-  // width: 560px;
   width: 50%;
   margin-left: 1rem;
+  .sb-title {
+    font-size: 22px;
+    margin: 0;
+    margin-top: 0.5rem;
+  }
   .sb-user {
-    border: 1px solid black;
-    background-color: $primary-accent;
+    @include border(5px);
+    background-color: $bg-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 550px;
+    .sb-location {
+      padding-left: 0.5rem;
+    }
     .primary-content {
+      @include border(5px);
+      margin-top: 1rem;
       display: flex;
-      // border: 1px solid blue;
+      width: 93%;
     }
     .primary-details {
       height: 250px;
+      padding-left: 0.4rem;
       p {
-        margin: 1rem 0.2rem;
+        margin: 0.5rem 0;
       }
-      span {
-        border-radius: 4px;
-        padding: 0.1rem 0.3rem;
-        background-color: lightgrey;
+      .highlight {
+        @include span($dark-font);
       }
     }
     img {
@@ -37,7 +44,13 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    border: 1px solid blue;
+    margin: 1rem 0;
     justify-content: center;
+  }
+  a {
+    color: $dark-font;
+    &:hover {
+      color: rgb(114, 114, 114);
+    }
   }
 }
