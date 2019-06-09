@@ -1,0 +1,16 @@
+@import "../_styles/variables";
+
+nav {
+  background-color: $primary-accent;
+  color: $light-font;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  .logo {
+    margin: 0 1.2rem 0 1.7rem;
+    font-size: 32px;
+  }
+  h3 {
+    margin: 0 5rem 0 0;
+  }
+}

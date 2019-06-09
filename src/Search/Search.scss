@@ -1,0 +1,32 @@
+@import "../_styles/variables";
+
+.Search {
+  border: 1px solid $light-font;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  height: 30px;
+  width: 300px;
+  background-color: white;
+  input {
+    border: none;
+    border-radius: 15px;
+    width: 250px;
+    padding: 0.3rem;
+    padding-left: 0.5rem;
+    overflow: hidden;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    position: relative;
+    padding: 0;
+    color: $dark-font;
+    margin-right: 0.5rem;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
