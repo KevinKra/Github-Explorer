@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 
 export class UserCard extends Component {
   state = {
+    rawData: {},
     userData: [],
     expanded: false
   };
@@ -28,7 +29,7 @@ export class UserCard extends Component {
         bio: data.bio
       };
       const userData = helpers.handleEmptyData(filteredData);
-      this.setState({ expanded: !toggle, userData });
+      this.setState({ expanded: !toggle, userData, rawData: data });
       return;
     }
     this.setState({ expanded: !toggle });
@@ -59,12 +60,17 @@ export class UserCard extends Component {
           <li className="bio">bio: {bio}</li>
         </ul>
         <div className="user-links">
-          <a href={`${url}`} target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-github" />
-          </a>
-          <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
-            <i className="fas fa-link" />
-          </a>
+          <button onClick={() => this.props.moreInfo(this.state.rawData)}>
+            More Info
+          </button>
+          <div>
+            <a href={`${url}`} target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github" />
+            </a>
+            <a href={`${blog}`} target="_blank" rel="noopener noreferrer">
+              <i className="fas fa-link" />
+            </a>
+          </div>
         </div>
       </section>
     );

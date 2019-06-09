@@ -1,0 +1,12 @@
+.Dashboard {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid blue;
+  .user-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 0.2rem;
+    width: 800px;
+  }
+}
