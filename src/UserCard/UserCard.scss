@@ -1,11 +1,12 @@
+@import "../_styles/variables";
+
 .UserCard {
+  @include border(4px);
+  @include shadow(15px);
   display: flex;
   position: relative;
   flex-direction: row;
   margin: 0.5rem 1rem;
-  border: 1px solid black;
-  box-shadow: 1px 1px 15px 1px lightgrey;
-  border-radius: 4px;
   .primary-content {
     display: flex;
     flex-direction: column;

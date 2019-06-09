@@ -2,10 +2,15 @@ $primary-accent: rgb(31, 31, 31);
 $bg-color: rgb(243, 243, 243);
 $light-font: rgb(240, 240, 240);
 $dark-font: rgb(20, 20, 20);
+$box-shadow: rgb(156, 156, 156);
 
 @mixin border($size) {
   border-radius: $size;
   border: 1px solid $dark-font;
+}
+
+@mixin shadow($size) {
+  box-shadow: 0 0 $size $box-shadow;
 }
 
 @mixin span($font-color) {

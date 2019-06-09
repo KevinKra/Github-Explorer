@@ -1,16 +1,26 @@
 @import "../_styles/variables";
+@import "../_styles/animations";
 
 .SideBar {
-  width: 50%;
-  margin: 0.5rem 0 0 1rem;
+  width: 1000px;
+  height: 1200px;
+  padding: 0.5rem 0 0 1rem;
   .sb-title {
     font-size: 22px;
     margin: 0;
     margin-top: 0.5rem;
   }
+  .first {
+    animation-duration: 1.5s;
+    animation-name: slide-in;
+  }
+  // .next {
+  //   animation-duration: 1s;
+  //   animation-name: fade-in;
+  // }
   .sb-user {
     @include border(5px);
-    // background-color: $bg-color;
+    @include shadow(25px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,6 +48,7 @@
     img {
       height: 250px;
       width: 250px;
+      border-radius: 4px 0 0 4px;
     }
   }
   .sb-repos {
