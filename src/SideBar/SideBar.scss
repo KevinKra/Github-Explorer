@@ -2,7 +2,7 @@
 
 .SideBar {
   width: 50%;
-  margin-left: 1rem;
+  margin: 0.5rem 0 0 1rem;
   .sb-title {
     font-size: 22px;
     margin: 0;
@@ -10,7 +10,7 @@
   }
   .sb-user {
     @include border(5px);
-    background-color: $bg-color;
+    // background-color: $bg-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
