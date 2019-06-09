@@ -26,7 +26,7 @@ export const searchUsers = async users => {
 
 export const userRepos = async user => {
   const response = await fetch(
-    `https://api.github.com/users/${user}/repos?sort=updated&per_page=5`
+    `https://api.github.com/users/${user}/repos?sort=updated&per_page=6`
   );
   if (!response.ok) {
     throw new Error(`Unsuccessful repository request.`);
