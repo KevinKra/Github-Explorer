@@ -13,7 +13,7 @@ class Dashboard extends Component {
     userData: {},
     userRepos: [],
     loading: true,
-    sideBar: false
+    sideBar: 0
   };
   async componentDidMount() {
     const users = await apiCalls.collectUsers("users");
@@ -29,7 +29,11 @@ class Dashboard extends Component {
   moreInfo = async data => {
     const cleanedData = handleEmptyData(data);
     const userRepos = await apiCalls.userRepos(data.login);
-    this.setState({ sideBar: true, userData: cleanedData, userRepos });
+    this.setState({
+      sideBar: this.state.sideBar + 1,
+      userData: cleanedData,
+      userRepos
+    });
   };
 
   renderUserCards = () => {

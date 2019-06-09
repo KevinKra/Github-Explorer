@@ -1,0 +1,83 @@
+@import "../_styles/variables";
+
+.user-repo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $primary-accent;
+  border-radius: 5px;
+  color: $light-font;
+  margin: 0.5rem;
+  border: 1px solid black;
+  width: 220px;
+  padding: 0.8rem;
+  padding-bottom: 0;
+  min-height: 235px;
+  p {
+    margin: 0;
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      word-wrap: break-word;
+      margin: 0;
+      width: 80%;
+    }
+    a {
+      align-self: flex-start;
+      margin: 0.3rem 0 0 1rem;
+      color: $light-font;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .repo-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .repo-primary {
+    display: flex;
+    justify-content: space-between;
+    h4 {
+      margin: 0;
+    }
+    .repo-watchers {
+      display: flex;
+      align-items: center;
+      i {
+        margin-right: 0.4rem;
+        color: $light-font;
+      }
+      span {
+        padding: 0.1rem 0.2rem;
+        border-radius: 5px;
+        color: $dark-font;
+        background-color: $light-font;
+      }
+    }
+  }
+  .bio {
+    margin: 0.5rem 0 1rem 0;
+    height: 75px;
+    overflow: auto;
+    padding: 0 0.6rem 0.2rem 0;
+  }
+  .repo-dates {
+    border-top: 1px solid $light-font;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    p {
+      margin: 0.2rem 0;
+      i {
+        width: 20px;
+        margin-right: 1.1rem;
+      }
+    }
+  }
+}

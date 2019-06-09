@@ -1,108 +1,67 @@
+@import "../_styles/variables";
+@import "../_styles/animations";
+
 .SideBar {
-  border: 1px solid red;
-  width: 50%;
-  margin-left: 1rem;
+  width: 1000px;
+  height: 1200px;
+  padding: 0.5rem 0 0 1rem;
+  .sb-title {
+    font-size: 22px;
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+  .first {
+    animation-duration: 1.5s;
+    animation-name: slide-in;
+  }
+  // .next {
+  //   animation-duration: 1s;
+  //   animation-name: fade-in;
+  // }
   .sb-user {
+    @include border(5px);
+    @include shadow(25px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
     width: 550px;
+    .sb-location {
+      padding-left: 0.5rem;
+    }
     .primary-content {
+      @include border(5px);
+      margin-top: 1rem;
       display: flex;
-      border: 1px solid red;
+      width: 93%;
     }
     .primary-details {
-      border: 1px solid red;
       height: 250px;
+      padding-left: 0.4rem;
       p {
-        margin: 1rem 0.2rem;
+        margin: 0.5rem 0;
       }
-      span {
-        border-radius: 4px;
-        padding: 0.1rem 0.3rem;
-        background-color: lightgrey;
+      .highlight {
+        @include span($dark-font);
       }
     }
     img {
       height: 250px;
       width: 250px;
+      border-radius: 4px 0 0 4px;
     }
   }
   .sb-repos {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    border: 1px solid blue;
+    margin: 1rem 0;
     justify-content: center;
   }
-}
-
-.user-repo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0.5rem;
-  border: 1px solid black;
-  width: 220px;
-  padding: 0.8rem;
-  padding-bottom: 0;
-  min-height: 235px;
-  p {
-    margin: 0;
-  }
-  .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h2 {
-      word-wrap: break-word;
-      margin: 0;
-      width: 80%;
-    }
-    a {
-      margin-left: 1rem;
-      color: black;
-    }
-  }
-  .repo-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .repo-primary {
-    display: flex;
-    justify-content: space-between;
-    h4 {
-      margin: 0;
-    }
-    .repo-watchers {
-      display: flex;
-      align-items: center;
-      i {
-        margin-right: 0.2rem;
-      }
-      span {
-        padding: 0.1rem 0.2rem;
-        border-radius: 5px;
-        background-color: lightgrey;
-      }
-    }
-  }
-  .bio {
-    margin: 0.5rem 0 1rem 0;
-    height: 75px;
-    overflow: auto;
-    padding: 0 0.6rem 0.2rem 0;
-  }
-  .repo-dates {
-    border-top: 1px solid black;
-    p {
-      margin: 0.5rem 0;
-      i {
-        width: 20px;
-      }
+  a {
+    color: $dark-font;
+    &:hover {
+      color: rgb(114, 114, 114);
     }
   }
 }

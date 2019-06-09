@@ -1,0 +1,25 @@
+@keyframes slide-in {
+  0% {
+    margin-left: 100%;
+    @include shadow(0px);
+    transform: scale(0.95);
+  }
+  80% {
+    margin-left: 0%;
+    @include shadow(0px);
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+    @include shadow(25px);
+  }
+}
+
+// @keyframes fade-in {
+//   from {
+//     filter: opacity(0);
+//   }
+//   to {
+//     filter: opacity(1);
+//   }
+// }
