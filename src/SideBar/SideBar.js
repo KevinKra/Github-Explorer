@@ -70,7 +70,13 @@ export default class SideBar extends Component {
     return (
       <section className="SideBar">
         {this.props.sideBar ? (
-          <section className="sb-user">{this.renderUser()}</section>
+          <section
+            className={
+              this.props.sideBar === 1 ? "sb-user first" : "sb-user next"
+            }
+          >
+            {this.renderUser()}
+          </section>
         ) : (
           <p>hide</p>
         )}
