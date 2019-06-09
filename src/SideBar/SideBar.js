@@ -6,19 +6,30 @@ export default class SideBar extends Component {
     const output = this.props.userRepos.map(repo => {
       return (
         <article className="user-repo" key={repo.node_id}>
-          <h2>{repo.name}</h2>
-          <h4>Language: {repo.language}</h4>
-          <p className="bio">bio: {repo.description || "No bio provided."}</p>
-          <p>
-            <i class="far fa-eye" /> {repo.watchers}
-          </p>
-          <p>
-            <i class="fas fa-plus" /> {repo.created_at}
-          </p>
-          <p>
-            <i class="fas fa-pencil-alt" /> {repo.updated_at}
-          </p>
-          <p>visit: {repo.visit}</p>
+          <div className="title">
+            <h2>{repo.name}</h2>{" "}
+            <a href={repo.visit} target="_blank" rel="noopener noreferrer">
+              <i className="fas fa-link" />
+            </a>
+          </div>
+          <div className="repo-details">
+            <div className="repo-primary">
+              <h4>Language: {repo.language}</h4>
+              <div className="repo-watchers">
+                <i className="far fa-eye" />
+                <span>{repo.watchers}</span>
+              </div>
+            </div>
+            <p className="bio">bio: {repo.description || "No bio provided."}</p>
+          </div>
+          <div className="repo-dates">
+            <p>
+              <i className="fas fa-plus" /> {repo.created_at}
+            </p>
+            <p>
+              <i className="fas fa-pencil-alt" /> {repo.updated_at}
+            </p>
+          </div>
         </article>
       );
     });
@@ -68,8 +79,9 @@ export default class SideBar extends Component {
           <a href={blog} target="_blank" rel="noopener noreferrer">
             Website: {blog}
           </a>
-          <button onClick={this.displayRepos}>Show Repos</button>
-          {this.props.userRepos.length > 1 && this.renderRepos()}
+          <section className="sb-repos">
+            {this.props.userRepos.length > 1 && this.renderRepos()}
+          </section>
         </Fragment>
       );
       return showData;
