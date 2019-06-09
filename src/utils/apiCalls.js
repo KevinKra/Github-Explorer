@@ -23,3 +23,30 @@ export const searchUsers = async users => {
   }
   return await response.json();
 };
+
+export const userRepos = async user => {
+  const response = await fetch(
+    `https://api.github.com/users/${user}/repos?sort=updated&per_page=5`
+  );
+  if (!response.ok) {
+    throw new Error(`Unsuccessful repository request.`);
+  } else {
+    const repositories = await response.json();
+    const output = repositories.map(repo => {
+      return {
+        description: repo.description,
+        name: repo.name,
+        language: repo.language,
+        open_issues: repo.open_issues,
+        has_issues: repo.has_issues,
+        watchers: repo.watchers,
+        forks: repo.forks,
+        visit: repo.html_url,
+        created_at: repo.created_at,
+        updated_at: repo.updated_at,
+        key: repo.node_id
+      };
+    });
+    return output;
+  }
+};
