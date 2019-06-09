@@ -2,6 +2,29 @@ import React, { Component, Fragment } from "react";
 import "./SideBar.scss";
 
 export default class SideBar extends Component {
+  renderRepos = () => {
+    const output = this.props.userRepos.map(repo => {
+      return (
+        <article className="user-repo" key={repo.node_id}>
+          <h2>{repo.name}</h2>
+          <h4>Language: {repo.language}</h4>
+          <p className="bio">bio: {repo.description || "No bio provided."}</p>
+          <p>
+            <i class="far fa-eye" /> {repo.watchers}
+          </p>
+          <p>
+            <i class="fas fa-plus" /> {repo.created_at}
+          </p>
+          <p>
+            <i class="fas fa-pencil-alt" /> {repo.updated_at}
+          </p>
+          <p>visit: {repo.visit}</p>
+        </article>
+      );
+    });
+    return output;
+  };
+
   renderUser = () => {
     if (this.props.userData) {
       const {
@@ -45,6 +68,8 @@ export default class SideBar extends Component {
           <a href={blog} target="_blank" rel="noopener noreferrer">
             Website: {blog}
           </a>
+          <button onClick={this.displayRepos}>Show Repos</button>
+          {this.props.userRepos.length > 1 && this.renderRepos()}
         </Fragment>
       );
       return showData;
@@ -55,7 +80,6 @@ export default class SideBar extends Component {
   render() {
     return (
       <section className="SideBar">
-        {/* {this.props.sideBar ? <p>show</p> : <p>hide</p>} */}
         {this.props.sideBar ? (
           <section className="sb-user">{this.renderUser()}</section>
         ) : (
