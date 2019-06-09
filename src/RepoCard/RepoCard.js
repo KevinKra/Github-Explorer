@@ -12,7 +12,7 @@ export const RepoCard = props => {
       </div>
       <div className="repo-details">
         <div className="repo-primary">
-          <h4>Language: {props.data.language}</h4>
+          <h4>Language: {props.data.language || "N/A"}</h4>
           <div className="repo-watchers">
             <i className="far fa-eye" />
             <span>{props.data.watchers}</span>
