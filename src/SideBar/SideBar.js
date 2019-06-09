@@ -28,21 +28,24 @@ export default class SideBar extends Component {
       } = this.props.userData;
       const showData = (
         <Fragment>
-          <h3>
-            {login} - {name}
-          </h3>
           <section className="primary-content">
             <img src={avatar_url} alt="" />
             <div className="primary-details">
+              <h3 className="sb-title">
+                {login} - {name}
+              </h3>
+              <p>
+                <i class="fas fa-map-marker-alt" />
+                <span className="sb-location">{location}</span>
+              </p>
               <p>Member since: {created_at}</p>
               <p>Membership type: {type}</p>
-              <p>Currently in: {location}</p>
               <p>Email: {email}</p>
               <p>
-                Followers <span>{followers}</span>
+                Followers <span className="highlight">{followers}</span>
               </p>
               <p>
-                Following <span>{following}</span>
+                Following <span className="highlight">{following}</span>
               </p>
             </div>
           </section>
