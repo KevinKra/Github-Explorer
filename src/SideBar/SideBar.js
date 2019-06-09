@@ -1,37 +1,11 @@
 import React, { Component, Fragment } from "react";
+import { RepoCard } from "../RepoCard/RepoCard";
 import "./SideBar.scss";
 
 export default class SideBar extends Component {
   renderRepos = () => {
     const output = this.props.userRepos.map(repo => {
-      return (
-        <article className="user-repo" key={repo.node_id}>
-          <div className="title">
-            <h2>{repo.name}</h2>{" "}
-            <a href={repo.visit} target="_blank" rel="noopener noreferrer">
-              <i className="fas fa-link" />
-            </a>
-          </div>
-          <div className="repo-details">
-            <div className="repo-primary">
-              <h4>Language: {repo.language}</h4>
-              <div className="repo-watchers">
-                <i className="far fa-eye" />
-                <span>{repo.watchers}</span>
-              </div>
-            </div>
-            <p className="bio">bio: {repo.description || "No bio provided."}</p>
-          </div>
-          <div className="repo-dates">
-            <p>
-              <i className="fas fa-plus" /> {repo.created_at}
-            </p>
-            <p>
-              <i className="fas fa-pencil-alt" /> {repo.updated_at}
-            </p>
-          </div>
-        </article>
-      );
+      return <RepoCard data={repo} key={repo.key} />;
     });
     return output;
   };
